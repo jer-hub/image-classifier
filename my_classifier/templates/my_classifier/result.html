@@ -1,0 +1,19 @@
+{% extends 'my_classifier/base.html' %}
+{% block title %}Result{% endblock title %}
+{% block content %}
+<main class="container my-4">
+    <div class="d-flex justify-content-center">
+        <div>
+            <div class="alert alert-secondary d-flex justify-content-center" role="alert">
+                <h4>Predicted Class: "{{ predicted_class }}"</h4>
+            </div>
+            <img src="{{ uploaded_file_url }}" alt="Uploaded Image">
+        </div>
+    </div>
+    <div class="d-flex justify-content-center my-2">
+        <a class="btn btn-outline-secondary" href="{% url 'classify_image' %}">Upload Another Image</a>
+    </div>
+</main>
+{% endblock content %}
+
+

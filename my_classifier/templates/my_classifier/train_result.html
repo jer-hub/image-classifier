@@ -1,0 +1,16 @@
+{% extends 'my_classifier/base.html' %}
+{% block title %}Train Result{% endblock title %}
+{% block content %}
+<main class="container my-4">
+    <h3>Train Result</h3>
+    {% if message %}
+    <p style="color: green;">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+    <p style="color: red;">Error: {{ error }}</p>
+    {% endif %}
+    <div class="d-flex justify-content-center my-2">
+        <a class="btn btn-outline-secondary" href="{% url 'classify_image' %}">Back</a>
+    </div>
+</main>
+{% endblock content %}

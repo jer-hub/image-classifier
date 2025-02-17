@@ -1,0 +1,11 @@
+{% extends 'my_classifier/base.html' %}
+{% block title %}Train Model{% endblock title %}
+{% block content %}
+<main class="container my-4">
+    <h3>Train the Model</h3>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-outline-secondary" type="submit">Start Training</button>
+    </form>
+</main>
+{% endblock content %}
