@@ -1,17 +1,19 @@
-# Use Python 3.11
+# Use the official Python image
 FROM python:3.11
 
-# Set the working directory
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # Copy project files
-COPY . .
+COPY . /app/
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Expose port (default Django runs on 8000)
+# Expose the port Django runs on
 EXPOSE 8000
 
-# Start Django
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
+# Run the Django application
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "project.wsgi"]
